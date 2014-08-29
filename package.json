@@ -10,7 +10,7 @@
   "bugs": "https://github.com/ngbp/ngbp/issues",
   "repository": {
     "type": "git",
-    "url": "git@github.com:faiverson/ngbp.git"
+    "url": "https://github.com/faiverson/ngbp/tree/master"
   },
   "dependencies": {},
   "devDependencies": {
