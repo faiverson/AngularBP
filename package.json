@@ -1,8 +1,8 @@
 {
   "author": "Fabian Torres",
   "name": "AngularBP",
-  "version": "0.0.1",
-  "homepage": "https://github.com/ngbp/ngbp",
+  "version": "0.0.3",
+  "homepage": "https://github.com/faiverson/ngbp/tree/master",
   "licenses": {
     "type": "MIT",
     "url": "https://raw.github.com/ngbp/ngbp/master/LICENSE"
@@ -10,7 +10,7 @@
   "bugs": "https://github.com/ngbp/ngbp/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/faiverson/ngbp/tree/master"
+    "url": "git@github.com:faiverson/AngularBP.git"
   },
   "dependencies": {},
   "devDependencies": {
