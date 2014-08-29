@@ -20,8 +20,8 @@
           <div class="navbar-brand">
             ngbp
             <small>
-              <a href="http://github.com/ngbp/ngbp/blob/v<%= version %>-release/CHANGELOG.md">
-                v<%= version %>
+              <a href="http://github.com/ngbp/ngbp/blob/v0.0.1-release/CHANGELOG.md">
+                v0.0.1
               </a>
             </small>
           </div>
@@ -70,12 +70,30 @@
       </div>
     </footer>
     <!-- compiled CSS -->
-    <% styles.forEach( function ( file ) { %>
-    <link rel="stylesheet" type="text/css" href="<%= file %>" />
-    <% }); %>
+    
+    <link rel="stylesheet" type="text/css" href="css/AngularBP-0.0.1.css" />
+    
     <!-- compiled JavaScript -->
-    <% scripts.forEach( function ( file ) { %>
-    <script type="text/javascript" src="<%= file %>"></script>
-    <% }); %>
+    
+    <script type="text/javascript" src="vendor/jquery/dist/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="vendor/angular/angular.js"></script>
+    
+    <script type="text/javascript" src="vendor/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    
+    <script type="text/javascript" src="vendor/placeholders/angular-placeholders-0.0.1-SNAPSHOT.min.js"></script>
+    
+    <script type="text/javascript" src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
+    
+    <script type="text/javascript" src="src/app/about/about.js"></script>
+    
+    <script type="text/javascript" src="src/app/app.js"></script>
+    
+    <script type="text/javascript" src="src/app/home/home.js"></script>
+    
+    <script type="text/javascript" src="templates-common.js"></script>
+    
+    <script type="text/javascript" src="templates-app.js"></script>
+    
   </body>
 </html>

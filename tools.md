@@ -1,13 +1,3 @@
-# The Tools Used in `ngBoilerplate`
-
-## Introduction
-
-`ngBoilerplate` is standards-based, so it uses all the usual tools to manage
-and develop client-side code. If you've developed modern, highly-organized
-JavaScript projects before, you are probably already familiar with at least most
-of these tools. What follows is a simple description of the tools of which this
-project makes use and how they fit in to the `ngBoilerplate` picture.
-
 ## Git
 
 [Git](http://git-scm.com/) is a distributed version control system.
@@ -206,18 +196,3 @@ $ bower install angular-grid --save-dev
 Bower can also update all of our packages for us at a later date, though that
 and its many other awesome features are beyond the scope of this simple
 overview.
-
-One last thing to note is that packages installed with Bower are not
-standardized, so we cannot automatically add them to the build process; anything
-installed with Bower (or placed in the `vendor/` directory manually) *must* be
-added to your `build.config.js` file manually; look for the Bower libs included
-in `ngBoilerplate` by default in there to see what I mean.
-
-## Where to Go From Here
-
-That's it! Now that you have a basic understanding of the tools involved, read
-through the [main README](README.md) to dive another level deeper and apply what
-you've learned for great good. I promise it will all make sense it short order.
-
-Happy programming!
-

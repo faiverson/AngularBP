@@ -1,19 +1,19 @@
 /**
- * This file/module contains all configuration for the build process.
+ * This file/module contains all configuration for the public process.
  */
 module.exports = {
   /**
-   * The `build_dir` folder is where our projects are compiled during
+   * The `public_dir` folder is where our projects are compiled during
    * development and the `compile_dir` folder is where our app resides once it's
    * completely built.
    */
-  build_dir: 'build',
-  compile_dir: 'bin',
+  public_dir: 'public',
+  compile_dir: 'release',
 
   /**
    * This is a collection of file patterns that refer to our app code (the
    * stuff in `src/`). These file paths are used in the configuration of
-   * build tasks. `js` is all project javascript, less tests. `ctpl` contains
+   * public tasks. `js` is all project javascript, less tests. `ctpl` contains
    * our reusable components' (`src/common`) template HTML files, while
    * `atpl` contains the same, but for our app's code. `html` is just our
    * main HTML file, `less` is our main stylesheet, and `unit` contains our
@@ -22,9 +22,6 @@ module.exports = {
   app_files: {
     js: [ 'src/**/*.js', '!src/**/*.spec.js', '!src/assets/**/*.js' ],
     jsunit: [ 'src/**/*.spec.js' ],
-    
-    coffee: [ 'src/**/*.coffee', '!src/**/*.spec.coffee' ],
-    coffeeunit: [ 'src/**/*.spec.coffee' ],
 
     atpl: [ 'src/app/**/*.tpl.html' ],
     ctpl: [ 'src/common/**/*.tpl.html' ],
@@ -44,7 +41,7 @@ module.exports = {
 
   /**
    * This is the same as `app_files`, except it contains patterns that
-   * reference vendor code (`vendor/`) that we need to place into the build
+   * reference vendor code (`vendor/`) that we need to place into the public
    * process somewhere. While the `app_files` property ensures all
    * standardized files are collected for compilation, it is the user's job
    * to ensure non-standardized (i.e. vendor-related) files are handled
@@ -62,7 +59,9 @@ module.exports = {
    */
   vendor_files: {
     js: [
+      'vendor/jquery/dist/jquery.min.js',
       'vendor/angular/angular.js',
+      //'vendor/bootstrap/dist/js/bootstrap.min.js',
       'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
       'vendor/placeholders/angular-placeholders-0.0.1-SNAPSHOT.min.js',
       'vendor/angular-ui-router/release/angular-ui-router.js',
@@ -71,6 +70,12 @@ module.exports = {
     css: [
     ],
     assets: [
+    ],
+    fonts: [
+    	'vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.eot',
+    	'vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.svg',
+    	'vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf',
+    	'vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.woff'
     ]
   },
 };

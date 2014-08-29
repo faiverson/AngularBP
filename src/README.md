@@ -8,22 +8,19 @@ tests of such code.
 ```
 src/
   |- app/
-  |  |- about/
-  |  |- home/
+  |  |- module/
   |  |- app.js
   |  |- app.spec.js
   |- assets/
   |- common/
-  |  |- plusOne/
   |- less/
   |  |- main.less
   |  |- variables.less
   |- index.html
 ```
 
-- `src/app/` - application-specific code, i.e. code not likely to be reused in
-  another application. [Read more &raquo;](app/README.md)
-- `src/assets/` - static files like fonts and images. 
+- `src/app/` - Put the angular code here. A folder for each module
+- `src/assets/` - static files like fonts and images.
   [Read more &raquo;](assets/README.md)
 - `src/common/` - third-party libraries or components likely to be reused in
   another application. [Read more &raquo;](common/README.md)
