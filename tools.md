@@ -1,8 +1,8 @@
 ## Git
 
 [Git](http://git-scm.com/) is a distributed version control system.
-`ngBoilerplate` uses git to manage its codebase. While in theory you don't have
-to use Git once you download `ngBoilerplate`, this project makes the assumption
+`ngApp` uses git to manage its codebase. While in theory you don't have
+to use Git once you download `ngApp`, this project makes the assumption
 that you do. If you're on GitHub, I assume you already have a basic
 understanding of Git, which is all you need to make effective use of this
 project. You just need to be able to commit and push and junk - nothing funky.
@@ -20,7 +20,7 @@ As the developer community is absolutely massive and incredibly active, Node.js
 has a basic package manager called NPM that you can use to install Node.js-based
 software and libraries from the command line.
 
-While `ngBoilerplate` makes heavy use of Node.js behind the scenes, you as the
+While `ngApp` makes heavy use of Node.js behind the scenes, you as the
 application developer don't need to really think about it much. Most of the
 interaction with Node.js will occur through Grunt (see next section), so you
 really only need to know how get the initial setup working.
@@ -28,13 +28,13 @@ really only need to know how get the initial setup working.
 `package.json` is an NPM package description file written in JSON. It contains
 basic metadata about your application, like its name, version, and dependencies.
 By default, several packages are required for the build process to work; so when
-you first start with `ngBoilerplate` you have to tell NPM to install the
+you first start with `ngApp` you have to tell NPM to install the
 packages; this is covered in detail in the [main README](README.md). Some of
 the required packages are Grunt build tasks (see below), while others are
 command-line tools either we (or the build system) need, like Karma, Grunt, and
 Bower.
 
-Don't worry about knowing Node.js in order to use `ngBoilerplate`; Grunt is
+Don't worry about knowing Node.js in order to use `ngApp`; Grunt is
 where the magic happens.
 
 ## Grunt.js
@@ -71,7 +71,7 @@ Grunt is controlled through `Gruntfile.js`. This file is heavily documented in
 the source, so I will only provide a high-altitude overview here. Also note that
 unless you need to modify the build process, you don't need to know anything
 else from this section. The two commands above really are all you need to know
-to get started with `ngBoilerplate`. But for those curious or looking to go a
+to get started with `ngApp`. But for those curious or looking to go a
 little more advanced, here's what you'll find.
 
 First, we tell Grunt which tasks we might want to use:
@@ -141,7 +141,7 @@ $ grunt default
 We also define the `watch` task discussed earlier. This is covered in more
 detail in the main (README)[README.md].
 
-Grunt is the engine behind `ngBoilerplate`. It's the magic that makes it move.
+Grunt is the engine behind `ngApp`. It's the magic that makes it move.
 Just getting started, you won't need to alter `Gruntfile.js` at all, but
 as you get into more advanced application development, you will probably need to
 add more tasks and change some steps around to make this build your own.
@@ -156,7 +156,7 @@ web projects, like Twitter Bootstrap and its AngularJS counterpart Angular
 Bootstrap. Bower allows us to say that our app depends in some way on these
 other libraries so that we can manage all of them in one simple place.
 
-`ngBoilerplate` comes with a `bower.json` file that looks something like this:
+`ngApp` comes with a `bower.json` file that looks something like this:
 
 ```js
 {

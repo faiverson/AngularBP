@@ -1,8 +1,8 @@
-angular.module( 'ngBoilerplate', [
+angular.module( 'ngApp', [
   'templates-app',
   'templates-common',
-  'ngBoilerplate.home',
-  'ngBoilerplate.about',
+  'ngApp.home',
+  'ngApp.about',
   'ui.router'
 ])
 

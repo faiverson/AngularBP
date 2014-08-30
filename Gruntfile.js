@@ -292,19 +292,19 @@ module.exports = function ( grunt ) {
      * This plugin compiles your LESS files, runs the generated CSS through CSS Lint,
      * and outputs the offending LESS line for any CSS Lint errors found.
      */
-	lesslint: {
-	  src: ['less/*.less',  'src/**/*.less'],
-	  options: {
-	  	csslint: {
-		  "qualified-headings": false,
-		  "unique-headings": false,
-		  "known-properties": false,
-		  "font-sizes": false,
-		  "important": false,
-		  "floats": false
-		}
-	  }
-	},
+    lesslint: {
+      src: ['less/*.less',  'src/**/*.less'],
+      options: {
+        csslint: {
+          "qualified-headings": false,
+          "unique-headings": false,
+          "known-properties": false,
+          "font-sizes": false,
+          "important": false,
+          "floats": false
+        }
+      }
+    },
 
     /**
      * HTML2JS is a Grunt plugin that takes all of your template files and
