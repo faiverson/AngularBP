@@ -11,6 +11,7 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-lesslint');
   grunt.loadNpmTasks('grunt-conventional-changelog');
   grunt.loadNpmTasks('grunt-bump');
   grunt.loadNpmTasks('grunt-karma');
@@ -68,16 +69,16 @@ module.exports = function ( grunt ) {
           "package.json",
           "bower.json"
         ],
-        commit: false,
-        commitMessage: 'chore(release): v%VERSION%',
+        commit: true,
+        commitMessage: 'Release: v%VERSION%',
         commitFiles: [
           "package.json",
-          "client/bower.json"
+          "bower.json"
         ],
-        createTag: false,
+        createTag: true,
         tagName: 'v%VERSION%',
         tagMessage: 'Version %VERSION%',
-        push: false,
+        push: true,
         pushTo: 'origin'
       }
     },
@@ -170,8 +171,8 @@ module.exports = function ( grunt ) {
        */
       public_css: {
         src: [
-          '<%= vendor_files.css %>',
-          '<%= public_dir %>/css/<%= pkg.name %>-<%= pkg.version %>.css'
+          '<%= public_dir %>/css/<%= pkg.name %>-<%= pkg.version %>.css',
+          '<%= vendor_files.css %>'
         ],
         dest: '<%= public_dir %>/css/<%= pkg.name %>-<%= pkg.version %>.css'
       },
@@ -180,13 +181,10 @@ module.exports = function ( grunt ) {
        * code and all specified vendor source code into a single file.
        */
       compile_vendor_js: {
-        options: {
-          banner: '<%= meta.banner %>'
-        },
         src: [
           '<%= vendor_files.js %>'
         ],
-        dest: '<%= compile_dir %>/js/<%= pkg.name %>-<%= pkg.version %>.js'
+        dest: '<%= compile_dir %>/js/vendors-<%= pkg.version %>.js'
       },
       /**
        * The `compile_js` target is the concatenation of our application source
@@ -251,15 +249,15 @@ module.exports = function ( grunt ) {
         },
         options: {
           cleancss: false,
-          compress: false
+          compress: false,
+          dumpLineNumbers: 'comments'
         }
       },
       compile: {
         files: {
-          '<%= public_dir %>/css/<%= pkg.name %>-<%= pkg.version %>.css': '<%= app_files.less %>'
+          '<%= compile_dir %>/css/<%= pkg.name %>-<%= pkg.version %>.css': '<%= app_files.less %>'
         },
         options: {
-          optimization: 2,
           cleancss: true,
           compress: true
         }
@@ -289,6 +287,24 @@ module.exports = function ( grunt ) {
             jshintrc: '.jshintrc'
         }
     },
+
+    /**
+     * This plugin compiles your LESS files, runs the generated CSS through CSS Lint,
+     * and outputs the offending LESS line for any CSS Lint errors found.
+     */
+	lesslint: {
+	  src: ['less/*.less',  'src/**/*.less'],
+	  options: {
+	  	csslint: {
+		  "qualified-headings": false,
+		  "unique-headings": false,
+		  "known-properties": false,
+		  "font-sizes": false,
+		  "important": false,
+		  "floats": false
+		}
+	  }
+	},
 
     /**
      * HTML2JS is a Grunt plugin that takes all of your template files and
@@ -512,7 +528,7 @@ module.exports = function ( grunt ) {
    * The `build` task gets your app ready to run for development and testing.
    */
   grunt.registerTask( 'dev', [
-    'clean', 'html2js', 'jshint', 'less:build',
+    'clean', 'html2js', 'jshint', 'lesslint', 'less:build',
     'concat:public_css', 'copy:public_app_assets', 'copy:public_vendor_assets', 'copy:public_vendor_fonts',
     'copy:public_appjs', 'copy:public_vendorjs', 'index:build'
   ]);
@@ -521,7 +537,7 @@ module.exports = function ( grunt ) {
    * The `build` task gets your app ready to run for development and testing.
    */
   grunt.registerTask( 'build', [
-    'clean', 'html2js', 'jshint', 'less:build',
+    'clean', 'html2js', 'jshint', 'lesslint', 'less:build',
     'concat:public_css', 'copy:public_app_assets', 'copy:public_vendor_assets', 'copy:public_vendor_fonts',
     'copy:public_appjs', 'copy:public_vendorjs', 'index:build', 'karmaconfig',
     'karma:continuous'
@@ -531,7 +547,7 @@ module.exports = function ( grunt ) {
    * minifying your code.
    */
   grunt.registerTask( 'compile', [
-    'less:compile', 'copy:compile_assets', 'ngmin', 'concat:compile_js', 'uglify', 'index:compile'
+    'less:compile', 'copy:compile_assets', 'ngmin', 'concat:compile_vendor_js', 'concat:compile_js', 'uglify', 'index:compile'
   ]);
 
   /**
