@@ -69,16 +69,16 @@ module.exports = function ( grunt ) {
           "package.json",
           "bower.json"
         ],
-        commit: true,
+        commit: false,
         commitMessage: 'Release: v%VERSION%',
         commitFiles: [
           "package.json",
           "bower.json"
         ],
-        createTag: true,
+        createTag: false,
         tagName: 'v%VERSION%',
         tagMessage: 'Version %VERSION%',
-        push: true,
+        push: false,
         pushTo: 'origin'
       }
     },
