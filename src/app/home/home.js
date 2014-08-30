@@ -38,5 +38,5 @@ angular.module( 'ngApp.home', [
  * And of course we define a controller for our route.
  */
 .controller( 'HomeCtrl', function HomeController( $scope ) {
-	$scope.hello = 'Good to Go!!';
+	$scope.title = 'Good to Go!!';
 });
