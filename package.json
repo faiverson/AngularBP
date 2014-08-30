@@ -1,7 +1,7 @@
 {
   "author": "Fabian Torres",
   "name": "AngularBP",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "homepage": "https://github.com/faiverson/ngbp/tree/master",
   "licenses": {
     "type": "MIT",
@@ -31,6 +31,7 @@
     "grunt-karma": "^0.8.2",
     "karma": "^0.12.9",
     "karma-chrome-launcher": "~0.1.4",
-    "karma-jshint-preprocessor": "0.0.4"
+    "karma-jshint-preprocessor": "0.0.4",
+    "grunt-lesslint": "~1.1.10"
   }
 }
