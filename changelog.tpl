@@ -1,5 +1,5 @@
 
-# <%= version%> (<%= today%>) 
+# <%= version%> (<%= today%>)
 
 <% if (_(changelog.feat).size() > 0) { %> ## Features
 <% _(changelog.feat).forEach(function(changes, scope) { %>
@@ -10,6 +10,13 @@
 
 <% if (_(changelog.fix).size() > 0) { %> ## Fixes
 <% _(changelog.fix).forEach(function(changes, scope) { %>
+- **<%= scope%>:**
+  <% changes.forEach(function(change) { %> - <%= change.msg%> (<%= helpers.commitLink(change.sha1) %>)
+  <% }); %>
+<% }); %> <% } %>
+
+<% if (_(changelog.test).size() > 0) { %> ## Tests
+<% _(changelog.test).forEach(function(changes, scope) { %>
 - **<%= scope%>:**
   <% changes.forEach(function(change) { %> - <%= change.msg%> (<%= helpers.commitLink(change.sha1) %>)
   <% }); %>

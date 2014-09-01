@@ -1,6 +1,6 @@
 {
   "name": "AngularBP",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "devDependencies": {
     "angular": "~1.2",
     "angular-mocks": "~1.2",
