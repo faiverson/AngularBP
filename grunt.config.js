@@ -20,23 +20,24 @@ module.exports = {
    * app's unit tests.
    */
   app_files: {
-    js: [ 'src/**/*.js', '!src/**/*.spec.js', '!src/assets/**/*.js' ],
-    jsunit: [ 'src/**/*.spec.js' ],
+	js: [ 'src/**/*.js', '!src/**/*.spec.js', '!src/assets/**/*.js' ],
+	jsunit: [ 'src/**/*.spec.js' ],
 
-    atpl: [ 'src/app/**/*.tpl.html' ],
-    ctpl: [ 'src/common/**/*.tpl.html' ],
+	atpl: [ 'src/app/**/*.tpl.html' ],
+	ctpl: [ 'src/common/**/*.tpl.html' ],
 
-    html: [ 'src/index.html' ],
-    less: 'src/less/main.less'
+	html: [ 'src/index.html' ],
+	less: 'src/less/main.less'
   },
 
   /**
    * This is a collection of files used during testing only.
    */
   test_files: {
-    js: [
-      'vendor/angular-mocks/angular-mocks.js'
-    ]
+	js: [
+	  'vendor/angular-mocks/angular-mocks.js',
+	  'node_modules/ngMidwayTester/src/ngMidwayTester.js'
+	]
   },
 
   /**
@@ -58,27 +59,28 @@ module.exports = {
    * recommended that you use wildcards.
    */
   vendor_files: {
-    js: [
-      'vendor/jquery/dist/jquery.min.js',
-      'vendor/angular/angular.min.js',
-      'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
-      'vendor/placeholders/angular-placeholders-0.0.1-SNAPSHOT.min.js',
-      'vendor/angular-ui-router/release/angular-ui-router.min.js',
-      'vendor/angular-animate/angular-animate.min.js',
-      'vendor/angular-block-ui/angular-block-ui.min.js',
-      'vendor/angular-ui-utils/modules/route/route.js',
-      'vendor/toastr/toastr.min.js'
-    ],
-    css: [
-    	'vendor/toastr/toastr.min.css'
-    ],
-    assets: [
-    ],
-    fonts: [
-    	'vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.eot',
-    	'vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.svg',
-    	'vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf',
-    	'vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.woff'
-    ]
+	js: [
+		'vendor/jquery/dist/jquery.min.js',
+		'vendor/angular/angular.min.js',
+		'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
+		'vendor/placeholders/angular-placeholders-0.0.1-SNAPSHOT.min.js',
+		'vendor/angular-ui-router/release/angular-ui-router.min.js',
+		'vendor/angular-animate/angular-animate.min.js',
+		'vendor/angular-block-ui/angular-block-ui.min.js',
+		'vendor/angular-ui-utils/modules/route/route.js',
+		'vendor/angular-ui-utils/modules/route/route.js',
+		'vendor/angular-local-storage/angular-local-storage.min.js'
+	],
+	css: [
+		'vendor/toastr/toastr.min.css'
+	],
+	assets: [
+	],
+	fonts: [
+		'vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.eot',
+		'vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.svg',
+		'vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf',
+		'vendor/bootstrap/dist/fonts/glyphicons-halflings-regular.woff'
+	]
   },
 };

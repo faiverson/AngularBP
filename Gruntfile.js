@@ -129,6 +129,16 @@ module.exports = function ( grunt ) {
           }
        ]
       },
+      public_vendor_css: {
+        files: [
+          {
+            src: [ '<%= vendor_files.css %>' ],
+            dest: '<%= public_dir %>/',
+            cwd: '.',
+            expand: true
+          }
+       ]
+      },
       public_appjs: {
         files: [
           {
@@ -516,8 +526,8 @@ module.exports = function ( grunt ) {
    * before watching for changes.
    */
   grunt.renameTask( 'watch', 'delta' );
-  //grunt.registerTask( 'watch', [ 'dev', 'karma:unit', 'delta' ] );
   grunt.registerTask( 'watch', [ 'dev', 'delta' ] );
+  grunt.registerTask( 'testing', [ 'build', 'karma:unit', 'delta' ] );
 
   /**
    * The default task is to build and compile.
@@ -530,7 +540,7 @@ module.exports = function ( grunt ) {
   grunt.registerTask( 'dev', [
     'clean', 'html2js', 'jshint', 'lesslint', 'less:build',
     'concat:public_css', 'copy:public_app_assets', 'copy:public_vendor_assets', 'copy:public_vendor_fonts',
-    'copy:public_appjs', 'copy:public_vendorjs', 'index:build'
+    'copy:public_appjs', 'copy:public_vendorjs', 'copy:public_vendor_css', 'index:build'
   ]);
 
   /**
@@ -539,7 +549,7 @@ module.exports = function ( grunt ) {
   grunt.registerTask( 'build', [
     'clean', 'html2js', 'jshint', 'lesslint', 'less:build',
     'concat:public_css', 'copy:public_app_assets', 'copy:public_vendor_assets', 'copy:public_vendor_fonts',
-    'copy:public_appjs', 'copy:public_vendorjs', 'index:build', 'karmaconfig',
+    'copy:public_appjs', 'copy:public_vendorjs', 'copy:public_vendor_css', 'index:build', 'karmaconfig',
     'karma:continuous'
   ]);
   /**

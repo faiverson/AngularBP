@@ -4,6 +4,8 @@ module.exports = function ( karma ) {
      * From where to look for files, starting with the location of this file.
      */
     basePath: '../',
+    singleRun: false,
+    colors: true,
 
     /**
      * This is the list of file patterns to load into the browser during testing.
@@ -17,12 +19,12 @@ module.exports = function ( karma ) {
       'src/assets/**/*.js'
     ],
     frameworks: [ 'jasmine' ],
-    plugins: [ 'karma-jasmine', 'karma-chrome-launcher', 'karma-firefox-launcher'],
+    plugins: [ 'karma-jasmine', 'karma-chrome-launcher', 'karma-firefox-launcher', 'karma-phantomjs-launcher'],
 
     /**
      * How to report, by default.
      */
-    reporters: 'dots',
+    reporters: ['progress'],
 
     /**
      * On which port should the browser connect, on which port is the test runner
@@ -51,8 +53,9 @@ module.exports = function ( karma ) {
      * the aesthetic advantage of not launching a browser every time you save.
      */
     browsers: [
-      'Chrome',
-      'Firefox'
+      //'PhantomJS'
+      //'Firefox',
+      'Chrome'
     ]
   });
 };

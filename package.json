@@ -33,6 +33,8 @@
     "karma-chrome-launcher": "~0.1.4",
     "karma-jshint-preprocessor": "0.0.4",
     "grunt-lesslint": "~1.1.10",
-    "grunt-ngdoc": "~0.1.3"
+    "grunt-ngdoc": "~0.1.3",
+    "karma-phantomjs-launcher": "~0.1.4",
+    "ng-midway-tester": "~2.0.5"
   }
 }
